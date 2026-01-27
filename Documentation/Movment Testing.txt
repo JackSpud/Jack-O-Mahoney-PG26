@@ -1,0 +1,27 @@
+Movement
+W = Walk Forward
+A = Walk Left
+S = Walk Backwards
+D = Walk Right
+Space = Jump
+CTRL = Slide
+
+Camera Movement will be done through the use of the mouse in a 3rd person 360 view around the player.
+the camera will be connected to the player and the player would then move in the direction the character is facing. in the case where the camera is looking up or down the player will not be able to either walk into the sky or into the ground 
+
+A and D will be used as a strafe type movement
+
+The Slide will be a type of movement/speed boost
+
+The Jump will not allow for the player to just go up forever and the player will fall back down after the jump you'll also be able to slide mid jump I will use a Rigidbody to test this
+
+			Done ^
+----------------------------------------------------------
+			To Do v
+----------------------------------------------------------
+
+Attacking
+
+For the attacking part I would like to have either where the Left Click of the mouse would allow the player to attack with a set of weapons or an auto attack feature 
+so the player could focus on the movement of the game instead of the attacking of the enemy's
+
