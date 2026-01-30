@@ -15,13 +15,18 @@ The Slide will be a type of movement/speed boost
 
 The Jump will not allow for the player to just go up forever and the player will fall back down after the jump you'll also be able to slide mid jump I will use a Rigidbody to test this
 
+Attacking
+For the attacking part i will have an auto attack feature that has the player attack at intervals that can be buffed later on with attack speed/cooldown this will allow for the player to focus on movement and dodging enemies rather than being focused on needing to press a button to attack.
+The auto attack will spawn a projectile that will later on home in on enemies but for testing it will spawn a projectile that will shoot from where the player is facing and despawn after a few seconds.
+----------------------------------------------------------
 			Done ^
 ----------------------------------------------------------
-			To Do v
+
+----------------------------------------------------------
+		  Testing on 30/1/26 v
 ----------------------------------------------------------
 
-Attacking
+Testing of the player movement was done on Movement Scene Test in unity where the WASD Jump Slide and Camera Movement was tested and working to how i wanted it to.
 
-For the attacking part I would like to have either where the Left Click of the mouse would allow the player to attack with a set of weapons or an auto attack feature 
-so the player could focus on the movement of the game instead of the attacking of the enemy's
+
 
