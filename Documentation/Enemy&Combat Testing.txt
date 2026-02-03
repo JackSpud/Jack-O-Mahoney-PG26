@@ -1,5 +1,5 @@
 Enemies/Enemy Spawning
-For Enemy spawns I will have certain spawn zones for enemies to spawn in where they will spawn a certain amount of enemies per wave and each wave increases the amount of enemies that spawn in each of the waves.
+For Enemy spawns I will have certain spawn zones for enemies to spawn in, where they will spawn a certain amount of enemies per wave and each wave increases the amount of enemies that spawn in each of the waves. The game will stop spawning new waves until the enemies from the previous waves are killed. 
 
 The Enemies themselves will be mostly melee type enemies that need to reach a certain distance from the player to be able to attack this will emphasize the movement part of the game where the player must dodge the enemies as much as possible to survive getting overwhelmed by the increasing enemy count. 
 
@@ -7,4 +7,4 @@ The Enemies themselves will be mostly melee type enemies that need to reach a ce
 Combat
 
 The combat will mainly focus on the auto attack feature and moving around to collect and beating waves to gain buffs/abilities
-for testing i will be mainly focusing on a homing projectile like a fireball to attack the enemies but id hope id be able to create a sort of class system to me able to make a melee base player character as well that would have a slash like effect around the player instead of an attack animation.
+for testing i will be mainly focusing on a homing projectile like a fireball to attack the enemies but id hope id be able to create a sort of class system to be able to make a melee base player character as well that would have a slash like effect around the player instead of an attack animation.
