@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 102283048}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,6 +299,7 @@ MonoBehaviour:
   attackInterval: 1
   projectilePrefab: {fileID: 913367420242861608, guid: 258121eea543d534a94c0cc2da1531d7, type: 3}
   firePoint: {fileID: 716915603}
+  attackRange: 15
 --- !u!1 &291398040
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +337,7 @@ MonoBehaviour:
   enemiesPerWaveIncrease: 2
   timeBetweenSpawns: 0.5
   timeBetweenWaves: 3
+  healthIncreasePerWave: 2
 --- !u!4 &291398042
 Transform:
   m_ObjectHideFlags: 0
