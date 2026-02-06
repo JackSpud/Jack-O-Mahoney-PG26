@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
 
         // Knockback
         EnemyKnockback knockback = target.GetComponent<EnemyKnockback>();
-        PlayerKnockback playerKnockback = FindObjectOfType<PlayerKnockback>();
+        PlayerKnockback playerKnockback = PlayerKnockback.FindFirstObjectByType<PlayerKnockback>();
         if (knockback != null && playerKnockback != null)
         {
             knockback.ApplyKnockback(transform.position, playerKnockback.GetKnockback());
