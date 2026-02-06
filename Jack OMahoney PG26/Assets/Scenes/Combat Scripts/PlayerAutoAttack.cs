@@ -45,6 +45,7 @@ public class AutoAttack : MonoBehaviour
         {
             homing.SetTarget(target);
         }
+
     }
 
     Transform FindNearestEnemy()

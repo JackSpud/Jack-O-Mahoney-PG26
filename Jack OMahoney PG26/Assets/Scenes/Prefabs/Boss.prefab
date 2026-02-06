@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 8943308089530871467}
   - component: {fileID: -7867088121747953425}
   - component: {fileID: 2879073060710212491}
-  - component: {fileID: 2846175522837266224}
-  - component: {fileID: 8587193439554240021}
-  - component: {fileID: -7117429602409714096}
+  - component: {fileID: 7373752508975085521}
+  - component: {fileID: -8979040698830510634}
+  - component: {fileID: -8617454077810395968}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.49996, y: 1.10971, z: -0.324}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72674ffdbb5af943b7f915994a9a19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 2
+  maxHealth: 5
 --- !u!114 &2879073060710212491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   moveSpeed: 3
   stoppingDistance: 1.5
---- !u!114 &2846175522837266224
+--- !u!114 &7373752508975085521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,10 +185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb4ace734dd1814eb1e482f1f76da04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
-  damage: 1
-  attackCooldown: 1
-  attackRange: 1.5
---- !u!114 &8587193439554240021
+  damage: 5
+  attackCooldown: 1.5
+  attackRange: 2.5
+--- !u!114 &-8979040698830510634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitFlash
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.1
---- !u!114 &-7117429602409714096
+--- !u!114 &-8617454077810395968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

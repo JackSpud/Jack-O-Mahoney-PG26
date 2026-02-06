@@ -5,6 +5,10 @@ public class WaveSpawner : MonoBehaviour
 {
     public static WaveSpawner instance;
 
+    [Header("Boss Settings")]
+    public GameObject Boss;
+    public int bossWaveInterval = 10;
+
     [Header("Enemy Settings")]
     public GameObject enemyPrefab;
 
@@ -49,6 +53,10 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy();
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
+        if(currentWave% bossWaveInterval == 0)
+        {
+                       SpawnBoss();
+        }
 
         waveInProgress = false;
     }
@@ -70,6 +78,26 @@ public class WaveSpawner : MonoBehaviour
             health.maxHealth = scaledHealth;
             health.ResetHealth(); // reset current health to new max
         }
+    }
+
+    void SpawnBoss()
+    {
+        SpawnZone zone = spawnZones[Random.Range(0, spawnZones.Length)];
+        Vector3 spawnPos = zone.GetRandomPoint();
+
+        GameObject boss = Instantiate(Boss, spawnPos, Quaternion.identity);
+        enemiesAlive++;
+
+        // Scale boss health harder than normal enemies
+        EnemyHealth health = boss.GetComponent<EnemyHealth>();
+        if (health != null)
+        {
+            float baseHealth = health.maxHealth;
+            health.maxHealth = baseHealth + (currentWave * 10f);
+            health.ResetHealth();
+        }
+
+        Debug.Log("Boss Spawned!");
     }
 
     public static void OnEnemyKilled()

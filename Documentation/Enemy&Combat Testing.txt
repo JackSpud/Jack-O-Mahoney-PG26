@@ -1,10 +1,15 @@
 Enemies/Enemy Spawning
-For Enemy spawns I will have certain spawn zones for enemies to spawn in, where they will spawn a certain amount of enemies per wave and each wave increases the amount of enemies that spawn in each of the waves. The game will stop spawning new waves until the enemies from the previous waves are killed. 
+For Enemy spawns I will have certain spawn zones for enemies to spawn in, where they will spawn a certain amount of enemies per wave and each wave increases the amount of enemies that spawn in each of the waves as well as the enemies will gain increased health on each new wave for increased difficulty. The game will stop spawning new waves until the enemies from the previous waves are killed. 
 
 The Enemies themselves will be mostly melee type enemies that need to reach a certain distance from the player to be able to attack this will emphasize the movement part of the game where the player must dodge the enemies as much as possible to survive getting overwhelmed by the increasing enemy count. 
 
+Every 10 waves a boss enemy will spawn alongside the other enemies it will have increased size and health to the other enemies and same as the other enemies it will get stronger every time it spawns. (For Testing purposes it will spawn on wave 2 but that can be changed if needed).
 
 Combat
 
 The combat will mainly focus on the auto attack feature and moving around to collect and beating waves to gain buffs/abilities
 for testing i will be mainly focusing on a homing projectile like a fireball to attack the enemies but id hope id be able to create a sort of class system to be able to make a melee base player character as well that would have a slash like effect around the player instead of an attack animation.
+
+The player themselves will have i-frames for a short time that allows them to become invincible to damage for about 0.4s to let the player have a small bit of room for error
+
+Knockback will be added as well so when the projectile hits the enemy it will be knocked back a bit and later i will add buffs/upgrades to increase the knockback if the player chooses.

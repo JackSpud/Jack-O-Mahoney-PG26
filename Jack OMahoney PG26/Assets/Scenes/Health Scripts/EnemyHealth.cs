@@ -15,6 +15,8 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
+        GetComponent<HitFlash>()?.Flash();
+
         if (currentHealth <= 0f)
         {
             Die();
