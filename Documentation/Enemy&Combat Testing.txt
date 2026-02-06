@@ -13,3 +13,10 @@ for testing i will be mainly focusing on a homing projectile like a fireball to 
 The player themselves will have i-frames for a short time that allows them to become invincible to damage for about 0.4s to let the player have a small bit of room for error
 
 Knockback will be added as well so when the projectile hits the enemy it will be knocked back a bit and later i will add buffs/upgrades to increase the knockback if the player chooses.
+
+----------------------------------------------------------
+			Done ^
+----------------------------------------------------------
+----------------------------------------------------------
+		  Testing on  v
+----------------------------------------------------------
