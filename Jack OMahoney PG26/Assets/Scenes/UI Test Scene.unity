@@ -734,6 +734,7 @@ MonoBehaviour:
   timeBetweenSpawns: 0.5
   timeBetweenWaves: 3
   healthIncreasePerWave: 2
+  bossHealthUI: {fileID: 0}
 --- !u!4 &291398042
 Transform:
   m_ObjectHideFlags: 0
@@ -796,7 +797,7 @@ GameObject:
   - component: {fileID: 532403498}
   - component: {fileID: 532403500}
   - component: {fileID: 532403499}
-  - component: {fileID: 532403501}
+  - component: {fileID: 532403502}
   m_Layer: 5
   m_Name: BossHealthPanel
   m_TagString: Untagged
@@ -863,7 +864,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532403497}
   m_CullTransparentMesh: 1
---- !u!114 &532403501
+--- !u!114 &532403502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -875,6 +876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4f67f42992dfd43865c2de68a74ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealthBar
+  bossSlider: {fileID: 1423464247}
+  bossText: {fileID: 1109265117}
 --- !u!1 &669878455
 GameObject:
   m_ObjectHideFlags: 0
