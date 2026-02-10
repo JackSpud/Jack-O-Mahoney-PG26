@@ -1,0 +1,11 @@
+UI
+
+- Health Bar for players and bosses not regular enemies
+
+- floating damage numbers above the enemies
+
+- visual showing of current buffs/upgrades if doable
+
+- timer to show how long you've survived
+
+- wave counter

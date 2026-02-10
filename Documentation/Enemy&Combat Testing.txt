@@ -18,5 +18,7 @@ Knockback will be added as well so when the projectile hits the enemy it will be
 			Done ^
 ----------------------------------------------------------
 ----------------------------------------------------------
-		  Testing on  v
+		  Testing on 06/02/2026 v
 ----------------------------------------------------------
+
+Testing the Enemy&Combat was done on Enemy%Combat Test Scene in unity where Enemy spawning, waves , bosses, homing projectiles, enemy attacking/movement, player/enemy health, health increase per wave for enemies , i-frames and knockback all work the way i want it to.

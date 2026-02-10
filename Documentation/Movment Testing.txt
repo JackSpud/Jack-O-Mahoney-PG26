@@ -23,7 +23,7 @@ The auto attack will spawn a projectile that will later on home in on enemies bu
 ----------------------------------------------------------
 
 ----------------------------------------------------------
-		  Testing on 30/1/26 v
+		  Testing on 30/01/2026 v
 ----------------------------------------------------------
 
 Testing of the player movement was done on Movement Scene Test in unity where the WASD Jump Slide and Camera Movement was tested and working to how i wanted it to.
