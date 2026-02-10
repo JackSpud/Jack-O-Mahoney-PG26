@@ -4,7 +4,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 10f;
 
-    private float currentHealth;
+    public float currentHealth;
 
     void Start()
     {
@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
+        // Flash effect when hit
         GetComponent<HitFlash>()?.Flash();
 
         if (currentHealth <= 0f)
@@ -23,14 +24,25 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void ResetHealth() 
+    public void ResetHealth()
     {
         currentHealth = maxHealth;
     }
 
     void Die()
     {
+        // Notify wave spawner that this enemy is dead
         WaveSpawner.OnEnemyKilled();
+
+        if (CompareTag("Boss"))
+        {
+            // Clear the boss health bar if assigned
+            if (WaveSpawner.instance != null && WaveSpawner.instance.bossHealthUI != null)
+            {
+                WaveSpawner.instance.bossHealthUI.ClearBoss();
+            }
+        }
+
         Destroy(gameObject);
     }
 }

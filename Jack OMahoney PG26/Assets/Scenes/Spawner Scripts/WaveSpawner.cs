@@ -22,6 +22,9 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 5f;
     public float healthIncreasePerWave = 2f;
 
+    [Header("UI References")]
+    public BossHealthBar bossHealthUI; // Reference to the boss health bar UI
+
     private int currentWave = 0;
     private int enemiesAlive = 0;
     private bool waveInProgress = false;
@@ -33,6 +36,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
+        // Start next wave if no wave is in progress and no enemies are alive
         if (!waveInProgress && enemiesAlive == 0)
         {
             StartCoroutine(StartNextWave());
@@ -48,14 +52,17 @@ public class WaveSpawner : MonoBehaviour
 
         Debug.Log($"Wave {currentWave} - Spawning {enemiesThisWave} enemies");
 
+        // Spawn normal enemies
         for (int i = 0; i < enemiesThisWave; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
-        if(currentWave% bossWaveInterval == 0)
+
+        // Spawn boss if wave is a boss wave
+        if (currentWave % bossWaveInterval == 0)
         {
-                       SpawnBoss();
+            SpawnBoss();
         }
 
         waveInProgress = false;
@@ -69,14 +76,14 @@ public class WaveSpawner : MonoBehaviour
         GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         enemiesAlive++;
 
-        // Scale health
+        // Scale health based on wave
         EnemyHealth health = enemy.GetComponent<EnemyHealth>();
         if (health != null)
         {
             float baseHealth = health.maxHealth; // prefab base health
             float scaledHealth = baseHealth + (currentWave - 1) * healthIncreasePerWave;
             health.maxHealth = scaledHealth;
-            health.ResetHealth(); // reset current health to new max
+            health.ResetHealth(); // set current health to new max
         }
     }
 
@@ -97,9 +104,14 @@ public class WaveSpawner : MonoBehaviour
             health.ResetHealth();
         }
 
-        Debug.Log("Boss Spawned!");
+        // Show boss health bar
+        if (bossHealthUI != null && health != null)
+        {
+            bossHealthUI.SetBoss(health);
+        }
     }
 
+    // Called by enemies when they die
     public static void OnEnemyKilled()
     {
         if (instance != null)
