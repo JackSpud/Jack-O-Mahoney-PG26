@@ -1,11 +1,9 @@
 UI
 
-- Health Bar for players and bosses not regular enemies
+- Health Bar for players and bosses not regular enemies to remove any clutter on screen
 
-- floating damage numbers above the enemies
+- floating damage numbers above the enemies that will change based on how much damage the player is currently doing
 
-- visual showing of current buffs/upgrades if doable
-
-- timer to show how long you've survived
+- visual showing of current buffs/upgrades where say the player picks one of the upgrades/buffs from the end of a wave or a chest the icon of that buff would then be assigned to one of the slots in the players buff inventory where then the icon of that buff will be displayed in that slot
 
 - wave counter
