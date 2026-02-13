@@ -50,14 +50,15 @@ public class AutoAttack : MonoBehaviour
 
     Transform FindNearestEnemy()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        EnemyHealth[] enemies = FindObjectsOfType<EnemyHealth>();
 
         Transform closest = null;
         float closestDistance = attackRange;
 
-        foreach (GameObject enemy in enemies)
+        foreach (EnemyHealth enemy in enemies)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
             if (distance < closestDistance)
             {
                 closestDistance = distance;

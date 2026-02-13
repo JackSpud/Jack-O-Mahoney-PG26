@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -23,7 +24,8 @@ public class WaveSpawner : MonoBehaviour
     public float healthIncreasePerWave = 2f;
 
     [Header("UI References")]
-    public BossHealthBar bossHealthUI; // Reference to the boss health bar UI
+    public BossHealthBar bossHealthUI;
+    public TextMeshProUGUI waveText;
 
     private int currentWave = 0;
     private int enemiesAlive = 0;
@@ -63,6 +65,11 @@ public class WaveSpawner : MonoBehaviour
         if (currentWave % bossWaveInterval == 0)
         {
             SpawnBoss();
+        }
+
+        if (waveText != null)
+        {
+            waveText.text = "Wave " + currentWave;
         }
 
         waveInProgress = false;

@@ -3,8 +3,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 10f;
-
     public float currentHealth;
+    public GameObject damageNumberPrefab;
 
     void Start()
     {
@@ -17,6 +17,19 @@ public class EnemyHealth : MonoBehaviour
 
         // Flash effect when hit
         GetComponent<HitFlash>()?.Flash();
+
+        if (damageNumberPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position + Vector3.up * 2f;
+
+            GameObject dmg = Instantiate(damageNumberPrefab, spawnPosition, Quaternion.identity);
+
+            DamageNumber dmgScript = dmg.GetComponent<DamageNumber>();
+            if (dmgScript != null)
+            {
+                dmgScript.SetDamage(damage);
+            }
+        }
 
         if (currentHealth <= 0f)
         {

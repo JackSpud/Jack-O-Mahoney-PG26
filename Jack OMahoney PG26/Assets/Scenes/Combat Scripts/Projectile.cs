@@ -67,7 +67,10 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") && other.transform == target)
+        if (other.transform != target) return;
+
+        EnemyHealth health = other.GetComponent<EnemyHealth>();
+        if (health != null)
         {
             HitTarget();
         }

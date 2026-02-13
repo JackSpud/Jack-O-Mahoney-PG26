@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 2
+  currentHealth: 0
+  damageNumberPrefab: {fileID: 833185216377063756, guid: ce2361f554601e54db2972f15a1dfc29, type: 3}
 --- !u!114 &2879073060710212491
 MonoBehaviour:
   m_ObjectHideFlags: 0

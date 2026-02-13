@@ -6,13 +6,11 @@ public class BossHealthBar : MonoBehaviour
 {
     public Slider bossSlider;
     public TextMeshProUGUI bossText;
-
     private EnemyHealth bossHealth;
 
     void Start()
     {
-        bossSlider.gameObject.SetActive(false); // hide by default
-        bossText.gameObject.SetActive(false);
+        gameObject.SetActive(false); // Hides the entire panel
     }
 
     void Update()
@@ -27,19 +25,19 @@ public class BossHealthBar : MonoBehaviour
     public void SetBoss(EnemyHealth boss)
     {
         bossHealth = boss;
+
         if (bossHealth != null)
         {
             bossSlider.maxValue = bossHealth.maxHealth;
             bossSlider.value = bossHealth.currentHealth;
-            bossSlider.gameObject.SetActive(true);
-            bossText.gameObject.SetActive(true);
+
+            gameObject.SetActive(true); // Show entire panel
         }
     }
 
     public void ClearBoss()
     {
         bossHealth = null;
-        bossSlider.gameObject.SetActive(false);
-        bossText.gameObject.SetActive(false);
+        gameObject.SetActive(false); // Hide entire panel
     }
 }
