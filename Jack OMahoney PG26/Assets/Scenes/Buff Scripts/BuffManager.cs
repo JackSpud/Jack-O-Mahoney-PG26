@@ -48,10 +48,12 @@ public class BuffManager : MonoBehaviour
             GameObject button = Instantiate(buffButtonPrefab);
             button.transform.SetParent(buffOptionsParent, false);
 
-            // Optional: Set icon if your prefab has an Image
-            Image iconImage = button.GetComponent<Image>();
+            // Set icon
+            Image iconImage = button.transform.Find("Icon").GetComponent<Image>();
             if (iconImage != null && chosen.icon != null)
+            {
                 iconImage.sprite = chosen.icon;
+            }
 
             // Add click listener
             Button btn = button.GetComponent<Button>();

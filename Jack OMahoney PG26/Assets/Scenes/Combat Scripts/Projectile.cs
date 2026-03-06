@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    PlayerStats playerStats;
     public float speed = 10f;
     public float rotateSpeed = 20f;
     public float lifeTime = 5f;
@@ -12,6 +13,8 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
+        playerStats = FindFirstObjectByType<PlayerStats>();
+
         Destroy(gameObject, lifeTime);
     }
 
@@ -49,14 +52,18 @@ public class Projectile : MonoBehaviour
     {
         if (target == null) return;
 
-        // Damage
+        float finalDamage = damage;
+
+        if (playerStats != null)
+            finalDamage = playerStats.GetDamage();
+
         EnemyHealth health = target.GetComponent<EnemyHealth>();
         if (health != null)
-            health.TakeDamage(damage);
+            health.TakeDamage(finalDamage);
 
-        // Knockback
         EnemyKnockback knockback = target.GetComponent<EnemyKnockback>();
         PlayerKnockback playerKnockback = PlayerKnockback.FindFirstObjectByType<PlayerKnockback>();
+
         if (knockback != null && playerKnockback != null)
         {
             knockback.ApplyKnockback(transform.position, playerKnockback.GetKnockback());
@@ -64,7 +71,6 @@ public class Projectile : MonoBehaviour
 
         Destroy(gameObject);
     }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.transform != target) return;

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AutoAttack : MonoBehaviour
 {
+    PlayerStats playerStats;
     public float attackInterval = 1f;
     public GameObject projectilePrefab;
     public Transform firePoint;
@@ -9,11 +10,22 @@ public class AutoAttack : MonoBehaviour
 
     private float attackTimer;
 
+    void Start()
+    {
+        playerStats = FindFirstObjectByType<PlayerStats>();
+    }
+
     void Update()
     {
         attackTimer += Time.deltaTime;
 
-        if (attackTimer >= attackInterval)
+        float attackSpeedMultiplier = playerStats != null
+            ? playerStats.attackSpeedMultiplier
+            : 1f;
+
+        float adjustedInterval = attackInterval / Mathf.Max(attackSpeedMultiplier, 0.1f);
+
+        if (attackTimer >= adjustedInterval)
         {
             Transform target = FindNearestEnemy();
 

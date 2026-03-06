@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MovementSpeed
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
   buffName: MovementSpeed
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a556696091c9bc543880dd9a05ce955d, type: 3}
   description: 
   bonusDamage: 0
   attackSpeedMultiplier: 1

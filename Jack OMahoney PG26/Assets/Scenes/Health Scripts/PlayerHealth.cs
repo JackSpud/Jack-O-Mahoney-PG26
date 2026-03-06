@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    PlayerStats playerStats;
+
     public float maxHealth = 10f;
     public float currentHealth;
 
@@ -11,9 +13,19 @@ public class PlayerHealth : MonoBehaviour
 
     private bool isInvincible;
 
+    PlayerHealthBar healthUI;
+
     void Start()
     {
-        currentHealth = maxHealth;
+        playerStats = FindFirstObjectByType<PlayerStats>();
+        healthUI = FindFirstObjectByType<PlayerHealthBar>();
+
+        if (playerStats != null)
+            currentHealth = playerStats.GetMaxHealth();
+        else
+            currentHealth = maxHealth;
+
+        UpdateHealthUI();
     }
 
     public void TakeDamage(float damage)
@@ -25,6 +37,11 @@ public class PlayerHealth : MonoBehaviour
 
         GetComponent<HitFlash>()?.Flash();
 
+        if (currentHealth < 0)
+            currentHealth = 0;
+
+        UpdateHealthUI();
+
         if (currentHealth <= 0f)
         {
             Die();
@@ -34,10 +51,18 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(InvincibilityFrames());
     }
 
+    void UpdateHealthUI()
+    {
+        if (healthUI == null)
+            healthUI = FindFirstObjectByType<PlayerHealthBar>();
+
+        if (healthUI != null)
+            healthUI.UpdateHealthUI();
+    }
     /// <summary>
-    /// this just makes the player invincible waits for the duration
-    /// and then turns the incinvincibility off.
+    /// this just makes the player invincible for a short time after taking damage, to prevent them from taking multiple hits in quick succession
     /// </summary>
+    /// <returns></returns>
     IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
@@ -48,7 +73,5 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died");
-        // Game over / respawn later
     }
-
 }
