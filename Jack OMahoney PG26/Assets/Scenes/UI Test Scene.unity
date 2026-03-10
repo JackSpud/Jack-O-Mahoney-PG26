@@ -1028,20 +1028,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
   Boss: {fileID: 4868222387212763623, guid: d7e103b73056f354780c3478b6ed341e, type: 3}
-  bossWaveInterval: 2
+  bossWaveInterval: 10
   enemyPrefab: {fileID: 4868222387212763623, guid: 62640bdca151fb2419d45186af2f0800, type: 3}
   spawnZones:
   - {fileID: 1118828944}
   - {fileID: 1406270864}
   - {fileID: 1507671115}
   - {fileID: 1525192139}
-  startingEnemies: 3
-  enemiesPerWaveIncrease: 2
+  startingEnemies: 5
+  enemiesPerWaveIncrease: 5
   timeBetweenSpawns: 0.5
   timeBetweenWaves: 3
   healthIncreasePerWave: 2
   bossHealthUI: {fileID: 532403502}
   waveText: {fileID: 811347310}
+  buffManager: {fileID: 254104914}
 --- !u!4 &291398042
 Transform:
   m_ObjectHideFlags: 0

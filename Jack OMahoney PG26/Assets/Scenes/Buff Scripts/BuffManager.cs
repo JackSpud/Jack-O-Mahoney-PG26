@@ -48,6 +48,13 @@ public class BuffManager : MonoBehaviour
             GameObject button = Instantiate(buffButtonPrefab);
             button.transform.SetParent(buffOptionsParent, false);
 
+            BuffButtonUI buttonUI = button.GetComponent<BuffButtonUI>();
+
+            if (buttonUI != null)
+            {
+                buttonUI.Setup(chosen);
+            }
+
             // Set icon
             Image iconImage = button.transform.Find("Icon").GetComponent<Image>();
             if (iconImage != null && chosen.icon != null)
@@ -86,6 +93,13 @@ public class BuffManager : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        WaveSpawner spawner = FindFirstObjectByType<WaveSpawner>();
+
+        if (spawner != null)
+        {
+            spawner.StartNextWaveAfterBuff();
+        }
     }
 
     // Temporary test key

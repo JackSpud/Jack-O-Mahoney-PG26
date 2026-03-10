@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61940348c142c74ab2da57ef4e7e6bf, type: 3}
   m_Name: MovementSpeed
   m_EditorClassIdentifier: Assembly-CSharp::BuffData
-  buffName: MovementSpeed
+  buffName: SpeedUP
   icon: {fileID: 21300000, guid: a556696091c9bc543880dd9a05ce955d, type: 3}
-  description: 
+  description: Speed +50%
   bonusDamage: 0
-  attackSpeedMultiplier: 1
-  movementSpeedMultiplier: 3
+  attackSpeedMultiplier: 0
+  movementSpeedMultiplier: 0.5
   HealthIncrease: 0

@@ -27,6 +27,9 @@ public class WaveSpawner : MonoBehaviour
     public BossHealthBar bossHealthUI;
     public TextMeshProUGUI waveText;
 
+    [Header("Buff System")]
+    public BuffManager buffManager;
+
     private int currentWave = 0;
     private int enemiesAlive = 0;
     private bool waveInProgress = false;
@@ -38,11 +41,25 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
-        // Start next wave if no wave is in progress and no enemies are alive
         if (!waveInProgress && enemiesAlive == 0)
         {
-            StartCoroutine(StartNextWave());
+            // Only show buff selection if wave > 1
+            if (currentWave >= 1 && buffManager != null)
+            {
+                waveInProgress = true;
+                buffManager.ShowBuffChoices();
+            }
+            else
+            {
+                // Start next wave immediately for the first wave
+                StartCoroutine(StartNextWave());
+            }
         }
+    }
+
+    public void StartNextWaveAfterBuff()
+    {
+        StartCoroutine(StartNextWave());
     }
 
     IEnumerator StartNextWave()

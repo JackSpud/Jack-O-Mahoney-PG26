@@ -26,10 +26,14 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
 
+    PlayerStats playerStats;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true; // keep upright
+        rb.freezeRotation = true;
+
+        playerStats = FindFirstObjectByType<PlayerStats>();
     }
 
     void Update()
@@ -37,13 +41,15 @@ public class PlayerMovement : MonoBehaviour
         // ----- Ground check -----
         isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance + 1.1f, groundMask);
 
-        // ----- Read input (Update) -----
+        // ----- Read input -----
         Vector3 movement = Vector3.zero;
 
         Vector3 camForward = cameraTransform.forward;
         Vector3 camRight = cameraTransform.right;
+
         camForward.y = 0f;
         camRight.y = 0f;
+
         camForward.Normalize();
         camRight.Normalize();
 
@@ -74,18 +80,28 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        float speedMultiplier = 1f;
+
+        if (playerStats != null)
+            speedMultiplier = playerStats.movementSpeedMultiplier;
+
         // ----- Sliding -----
         if (isSliding)
         {
             slideTimer -= Time.fixedDeltaTime;
-            rb.MovePosition(rb.position + slideDirection * slideSpeed * Time.fixedDeltaTime);
+
+            float finalSlideSpeed = slideSpeed * speedMultiplier;
+
+            rb.MovePosition(rb.position + slideDirection * finalSlideSpeed * Time.fixedDeltaTime);
 
             if (slideTimer <= 0f)
                 isSliding = false;
         }
         else
         {
-            rb.MovePosition(rb.position + moveInput * speed * Time.fixedDeltaTime);
+            float finalSpeed = speed * speedMultiplier;
+
+            rb.MovePosition(rb.position + moveInput * finalSpeed * Time.fixedDeltaTime);
         }
 
         // ----- Rotate player toward movement -----
