@@ -1,0 +1,20 @@
+Buffs/Upgrades are going to come from the end of waves when all the enemies are dead aswell as opening chests that will spawn randomly across the map.
+when either these conditions are met a selection box will appear on the screen stoping the game so the player may choose one of the 3 buffs shown for the next wave
+
+These Buffs include:
+- AttackSpeed
+- DamageUP
+- HealthUP
+- MovementSpeed
+
+once the player chooses 1 of the 3 buff choices that show up (and the 3 buffs will cycle through the 4 I have at random) the buff its self will be applied to the player via its respective script example being the Movement Speed Buff would get applied to the player through the playermovement script etc.
+
+----------------------------------------------------------
+			Done ^
+----------------------------------------------------------
+
+----------------------------------------------------------
+		  Testing on 13/02/2026 v
+----------------------------------------------------------
+
+Testing of the Buffs/Upgrades was also done in the UI Test Scene as the Buff Selection System does appear in the UI and made sense to test in the same scene, Everything works as intended and how i wanted it to

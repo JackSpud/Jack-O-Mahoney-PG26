@@ -7,3 +7,13 @@ UI
 - visual showing of current buffs/upgrades where say the player picks one of the upgrades/buffs from the end of a wave or a chest the icon of that buff would then be assigned to one of the slots in the players buff inventory where then the icon of that buff will be displayed in that slot
 
 - wave counter
+
+----------------------------------------------------------
+			Done ^
+----------------------------------------------------------
+
+----------------------------------------------------------
+		  Testing on 13/03/2026 v
+----------------------------------------------------------
+
+Testing of the UI for the game was done inside the UI Test scene and everything works how i wanted it to
