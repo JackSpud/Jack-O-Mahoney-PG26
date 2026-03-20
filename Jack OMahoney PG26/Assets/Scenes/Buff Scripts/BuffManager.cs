@@ -9,15 +9,19 @@ public class BuffManager : MonoBehaviour
     public GameObject buffButtonPrefab;
     public Transform buffOptionsParent;
     public GameObject selectionPanel;
+    ChestOpenSequence Video;
 
     [Header("Settings")]
     public int defaultChoices = 3;
 
-    public void ShowBuffChoices(int amount = -1)
+    public void ShowBuffChoices(ChestOpenSequence chestOpenSequence=null, int amount = -1)
     {
         if (amount <= 0)
             amount = defaultChoices;
-
+        if ((Video == null)&& (chestOpenSequence!=null))
+        {
+            Video = chestOpenSequence;
+        }
         // Show panel
         selectionPanel.SetActive(true);
 
@@ -75,39 +79,37 @@ public class BuffManager : MonoBehaviour
     void ApplyBuff(BuffData buff)
     {
         PlayerBuffs player = FindFirstObjectByType<PlayerBuffs>();
+
         if (player != null)
             player.AddBuff(buff);
 
         BuffUIManager ui = FindFirstObjectByType<BuffUIManager>();
+
         if (ui != null && player != null)
         {
             int slotIndex = player.activeBuffs.Count - 1;
             ui.SetBuff(slotIndex, buff.icon);
         }
 
+        GameObject chestVideo = GameObject.Find("ChestVideoPanel");
+        Video.gameObject.SetActive(false);
+
+
         selectionPanel.SetActive(false);
 
-      
         Time.timeScale = 1f;
 
-        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        WaveSpawner spawner = FindFirstObjectByType<WaveSpawner>();
-
-        if (spawner != null)
-        {
-            spawner.StartNextWaveAfterBuff();
-        }
     }
 
     // Temporary test key
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            ShowBuffChoices();
-        }
+        //// if (Input.GetKeyDown(KeyCode.B))
+        // {
+        //     ShowBuffChoices();
+        // }
     }
+
 }

@@ -2,15 +2,54 @@ using UnityEngine;
 
 public class ChestInteraction : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject promptText;
+    public BuffManager buffManager;
+    public GameObject chestVideoPanel;
+
+    bool playerNearby;
+
     void Start()
     {
-        
+        promptText.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (playerNearby && Input.GetKeyDown(KeyCode.F))
+        {
+            OpenChest();
+        }
+    }
+
+    void OpenChest()
+    {
+        promptText.SetActive(false);
+
+        Time.timeScale = 0f;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        chestVideoPanel.SetActive(true);
+
+        gameObject.SetActive(false);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = true;
+            promptText.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = false;
+            promptText.SetActive(false);
+        }
     }
 }
