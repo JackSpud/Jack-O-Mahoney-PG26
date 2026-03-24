@@ -8,6 +8,14 @@ public class ChestInteraction : MonoBehaviour
 
     bool playerNearby;
 
+    void Awake()
+    {
+        if (buffManager == null)
+        {
+            buffManager = FindFirstObjectByType<BuffManager>();
+        }
+    }
+
     void Start()
     {
         promptText.SetActive(false);
