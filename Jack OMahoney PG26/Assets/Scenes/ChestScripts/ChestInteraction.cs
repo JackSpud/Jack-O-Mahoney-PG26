@@ -4,12 +4,14 @@ public class ChestInteraction : MonoBehaviour
 {
     public GameObject promptText;
     public BuffManager buffManager;
-    public GameObject chestVideoPanel;
+
+    PanelManager videoManager;
 
     bool playerNearby;
 
     void Awake()
     {
+        videoManager = FindFirstObjectByType<PanelManager>();
         if (buffManager == null)
         {
             buffManager = FindFirstObjectByType<BuffManager>();
@@ -38,7 +40,7 @@ public class ChestInteraction : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        chestVideoPanel.SetActive(true);
+        videoManager.TurnOnVideo();
 
         gameObject.SetActive(false);
     }

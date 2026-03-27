@@ -39,22 +39,15 @@ public class WaveSpawner : MonoBehaviour
         instance = this;
     }
 
+    void Start()
+    {
+        // Start the first wave immediately
+        StartCoroutine(StartNextWave());
+    }
+
     void Update()
     {
-        if (!waveInProgress && enemiesAlive == 0)
-        {
-            // Only show buff selection if wave > 1
-            if (currentWave >= 1 && buffManager != null)
-            {
-                waveInProgress = true;
-                buffManager.ShowBuffChoices();
-            }
-            else
-            {
-                // Start next wave immediately for the first wave
-                StartCoroutine(StartNextWave());
-            }
-        }
+
     }
 
     public void StartNextWaveAfterBuff()
@@ -90,6 +83,7 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveInProgress = false;
+        CheckWaveEnd();
     }
 
     void SpawnEnemy()
@@ -141,6 +135,24 @@ public class WaveSpawner : MonoBehaviour
         if (instance != null)
         {
             instance.enemiesAlive--;
+            instance.CheckWaveEnd();
+        }
+    }
+
+    private void CheckWaveEnd()
+    {
+        if (!waveInProgress && instance.enemiesAlive <= 0)
+        {
+            if (currentWave >= 1 && buffManager != null)
+            {
+                waveInProgress = true;
+                buffManager.buffFromWave = true;
+                buffManager.ShowBuffChoices();
+            }
+            else
+            {
+                StartCoroutine(StartNextWave());
+            }
         }
     }
 }
