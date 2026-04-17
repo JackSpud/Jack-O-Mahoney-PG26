@@ -1551,8 +1551,8 @@ MonoBehaviour:
   - {fileID: 993358150}
   - {fileID: 291419417}
   - {fileID: 342431672}
-  minSpawnInterval: 5
-  maxSpawnInterval: 10
+  minSpawnInterval: 25
+  maxSpawnInterval: 50
 --- !u!4 &562709423
 Transform:
   m_ObjectHideFlags: 0

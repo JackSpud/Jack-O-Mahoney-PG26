@@ -10,6 +10,11 @@ public class PanelManager : MonoBehaviour
        VideoPanel.SetActive(true);
     }
 
+    internal void TurnOffVideo()
+    {
+        VideoPanel.SetActive(false);
+    }
+
     internal void TurnOffSelection()
     {
         selectionPanel.SetActive(false);

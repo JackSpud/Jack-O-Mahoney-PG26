@@ -106,6 +106,8 @@ public class BuffManager : MonoBehaviour
         //Video.gameObject.SetActive(false);
 
         videoManager.TurnOffSelection();
+        videoManager.TurnOffVideo();
+
 
         Time.timeScale = 1f;
 
