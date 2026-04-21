@@ -3,14 +3,14 @@ using UnityEngine;
 public class BossMovement: EnemyMovement
 {
 
-    private void Start()
+    private new void Start()
     {
         base.Start();
     }
 
 
 
-    private void Update()
+    private new void Update()
     {
         base.Update();
     }
