@@ -57,7 +57,7 @@ public class Projectile : MonoBehaviour
         if (playerStats != null)
             finalDamage = playerStats.GetDamage();
 
-        EnemyHealth health = target.GetComponent<EnemyHealth>();
+        I_Health health = target.GetComponent<I_Health>();
         if (health != null)
             health.TakeDamage(finalDamage);
 
@@ -75,10 +75,17 @@ public class Projectile : MonoBehaviour
     {
         if (other.transform != target) return;
 
-        EnemyHealth health = other.GetComponent<EnemyHealth>();
+        I_Health health = other.GetComponent<I_Health>();
+
+
         if (health != null)
         {
-            HitTarget();
+            if (health is EnemyHealth)
+            {
+                (health as EnemyHealth).testmethod();
+
+                HitTarget();
+            }
         }
     }
 }

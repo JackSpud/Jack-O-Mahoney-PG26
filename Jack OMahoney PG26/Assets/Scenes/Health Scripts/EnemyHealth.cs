@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour,I_Health
 {
     public float maxHealth = 10f;
     public float currentHealth;
@@ -10,6 +11,8 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
+
+
 
     public void TakeDamage(float damage)
     {
@@ -45,7 +48,7 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         // Notify wave spawner that this enemy is dead
-        WaveSpawner.OnEnemyKilled();
+        WaveSpawner.OnEnemyKilled(this);
 
         if (CompareTag("Boss"))
         {
@@ -57,5 +60,10 @@ public class EnemyHealth : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    internal void testmethod()
+    {
+        print("test");
     }
 }

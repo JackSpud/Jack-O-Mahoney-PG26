@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
   Boss: {fileID: 4868222387212763623, guid: d7e103b73056f354780c3478b6ed341e, type: 3}
-  bossWaveInterval: 10
+  bossWaveInterval: 1
   enemyPrefab: {fileID: 4868222387212763623, guid: 62640bdca151fb2419d45186af2f0800, type: 3}
   spawnZones:
   - {fileID: 1118828944}
@@ -1537,8 +1537,8 @@ MonoBehaviour:
   - {fileID: 993358150}
   - {fileID: 291419417}
   - {fileID: 342431672}
-  minSpawnInterval: 5
-  maxSpawnInterval: 10
+  minSpawnInterval: 2
+  maxSpawnInterval: 4
 --- !u!4 &562709423
 Transform:
   m_ObjectHideFlags: 0
@@ -2612,7 +2612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd6f393100f7fd41982161b88158f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnZone
-  size: {x: 30, y: 1, z: 15}
+  size: {x: 100, y: 1, z: 50}
 --- !u!4 &1118828945
 Transform:
   m_ObjectHideFlags: 0
@@ -2622,7 +2622,7 @@ Transform:
   m_GameObject: {fileID: 1118828943}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.82, z: 73.1}
+  m_LocalPosition: {x: 0.2, y: 0.82, z: 69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2868,7 +2868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd6f393100f7fd41982161b88158f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnZone
-  size: {x: 15, y: 1, z: 30}
+  size: {x: 50, y: 1, z: 100}
 --- !u!4 &1406270865
 Transform:
   m_ObjectHideFlags: 0
@@ -3074,7 +3074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd6f393100f7fd41982161b88158f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnZone
-  size: {x: 30, y: 1, z: 15}
+  size: {x: 100, y: 1, z: 50}
 --- !u!4 &1507671116
 Transform:
   m_ObjectHideFlags: 0
@@ -3119,7 +3119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd6f393100f7fd41982161b88158f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnZone
-  size: {x: 15, y: 1, z: 30}
+  size: {x: 50, y: 1, z: 100}
 --- !u!4 &1525192140
 Transform:
   m_ObjectHideFlags: 0
@@ -3210,63 +3210,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535618434}
   m_CullTransparentMesh: 1
---- !u!1001 &1543142399
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3732529199290163609, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_Name
-      value: ChestModel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073307038045109027, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -26.51258
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073307038045109027, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073307038045109027, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 19.40182
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073307038045109027, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073307038045109027, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073307038045109027, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073307038045109027, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073307038045109027, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073307038045109027, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073307038045109027, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ed7d5efa2d6393247a42717341127f76, type: 3}
 --- !u!1 &1643470866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3553,8 +3496,8 @@ GameObject:
   - component: {fileID: 1898730928}
   - component: {fileID: 1898730927}
   m_Layer: 5
-  m_Name: ChestOpenPanel
-  m_TagString: Untagged
+  m_Name: ChestVideoPanel
+  m_TagString: ChestVideoPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3754,4 +3697,3 @@ SceneRoots:
   - {fileID: 993358150}
   - {fileID: 291419417}
   - {fileID: 342431672}
-  - {fileID: 1543142399}

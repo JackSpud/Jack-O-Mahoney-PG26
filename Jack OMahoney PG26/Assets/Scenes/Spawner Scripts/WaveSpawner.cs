@@ -1,6 +1,8 @@
+using NUnit.Framework;
 using System.Collections;
-using UnityEngine;
+using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -33,6 +35,8 @@ public class WaveSpawner : MonoBehaviour
     private int currentWave = 0;
     private int enemiesAlive = 0;
     private bool waveInProgress = false;
+
+    private static List<EnemyHealth> allEnemies = new List<EnemyHealth>();
 
     void Awake()
     {
@@ -104,6 +108,7 @@ public class WaveSpawner : MonoBehaviour
         EnemyHealth health = enemy.GetComponent<EnemyHealth>();
         if (health != null)
         {
+            allEnemies.Add(health);
             float baseHealth = health.maxHealth; // prefab base health
             float scaledHealth = baseHealth + (currentWave - 1) * healthIncreasePerWave;
             health.maxHealth = scaledHealth;
@@ -136,8 +141,9 @@ public class WaveSpawner : MonoBehaviour
     }
 
     // Called by enemies when they die
-    public static void OnEnemyKilled()
+    public static void OnEnemyKilled(EnemyHealth enemyVictim)
     {
+        allEnemies.Remove(enemyVictim);
         if (instance != null)
         {
             instance.enemiesAlive--;

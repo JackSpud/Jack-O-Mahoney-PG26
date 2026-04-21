@@ -31,7 +31,7 @@ public class EnemyDamage : MonoBehaviour
 
     void Attack()
     {
-        PlayerHealth health = player.GetComponent<PlayerHealth>();
+        I_Health health = player.GetComponent<I_Health>();
         if (health != null)
         {
             health.TakeDamage(damage);

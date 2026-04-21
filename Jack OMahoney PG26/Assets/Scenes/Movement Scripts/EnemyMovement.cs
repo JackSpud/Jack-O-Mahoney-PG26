@@ -7,13 +7,13 @@ public class EnemyMovement : MonoBehaviour
 
     private Transform player;
 
-    void Start()
+    internal void Start()
     {
         // Find the player once
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
+    internal void Update()
     {
         if (player == null) return;
 

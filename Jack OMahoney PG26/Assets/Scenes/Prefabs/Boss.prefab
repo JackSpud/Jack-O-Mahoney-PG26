@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 7326756821388704438}
   - component: {fileID: 8943308089530871467}
   - component: {fileID: -7867088121747953425}
-  - component: {fileID: 2879073060710212491}
   - component: {fileID: 7373752508975085521}
   - component: {fileID: -8979040698830510634}
   - component: {fileID: -8617454077810395968}
+  - component: {fileID: 3519345191054711587}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -68,8 +68,6 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -91,7 +89,6 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -161,20 +158,6 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 0
   damageNumberPrefab: {fileID: 833185216377063756, guid: ce2361f554601e54db2972f15a1dfc29, type: 3}
---- !u!114 &2879073060710212491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4868222387212763623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bda65e73f3c8d844a036946c796b751, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  moveSpeed: 3
-  stoppingDistance: 1.5
 --- !u!114 &7373752508975085521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,3 +199,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f99a8ed8025384595d34402e8abc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyKnockback
+--- !u!114 &3519345191054711587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4868222387212763623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf3c9acc40737f34cbbe3bfde435c3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  stoppingDistance: 1.5
