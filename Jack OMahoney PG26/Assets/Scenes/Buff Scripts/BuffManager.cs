@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class BuffManager : MonoBehaviour
 {
+    PanelManager videoManager;
+
     [Header("Buff Setup")]
     public List<BuffData> allBuffs;
     public GameObject buffButtonPrefab;
@@ -14,6 +16,14 @@ public class BuffManager : MonoBehaviour
     [Header("Settings")]
     public int defaultChoices = 3;
 
+
+    public bool buffFromWave = false;
+
+    private void Awake()
+    {
+        videoManager = FindFirstObjectByType<PanelManager>();
+    }
+
     public void ShowBuffChoices(ChestOpenSequence chestOpenSequence=null, int amount = -1)
     {
         if (amount <= 0)
@@ -22,6 +32,7 @@ public class BuffManager : MonoBehaviour
         {
             Video = chestOpenSequence;
         }
+
         // Show panel
         selectionPanel.SetActive(true);
 
@@ -91,16 +102,23 @@ public class BuffManager : MonoBehaviour
             ui.SetBuff(slotIndex, buff.icon);
         }
 
-        GameObject chestVideo = GameObject.Find("ChestVideoPanel");
-        Video.gameObject.SetActive(false);
+        //GameObject chestVideo = GameObject.Find("ChestVideoPanel");
+        //Video.gameObject.SetActive(false);
 
+        videoManager.TurnOffSelection();
+        videoManager.TurnOffVideo();
 
-        selectionPanel.SetActive(false);
 
         Time.timeScale = 1f;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (buffFromWave && WaveSpawner.instance != null)
+        {
+            WaveSpawner.instance.StartNextWaveAfterBuff();
+            buffFromWave = false;
+        }
     }
 
     // Temporary test key

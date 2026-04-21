@@ -3,11 +3,15 @@ using UnityEngine.Video;
 
 public class ChestOpenSequence : MonoBehaviour
 {
-    public VideoPlayer video;
-    public BuffManager buffManager;
+    VideoPlayer video;
+    BuffManager buffManager;
 
     void OnEnable()
     {
+        video = GetComponentInChildren<VideoPlayer>();
+        buffManager = FindFirstObjectByType<BuffManager>();
+
+
         video.Play();
 
         video.loopPointReached += VideoFinished;
