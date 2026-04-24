@@ -102,9 +102,6 @@ public class BuffManager : MonoBehaviour
             ui.SetBuff(slotIndex, buff.icon);
         }
 
-        //GameObject chestVideo = GameObject.Find("ChestVideoPanel");
-        //Video.gameObject.SetActive(false);
-
         videoManager.TurnOffSelection();
         videoManager.TurnOffVideo();
 

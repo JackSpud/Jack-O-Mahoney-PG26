@@ -1,4 +1,5 @@
 using UnityEngine;
+using static EnemyHealth;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -6,16 +7,21 @@ public class EnemyMovement : MonoBehaviour
     public float stoppingDistance = 1.5f;  // How close to the player they stop
 
     private Transform player;
+    private EnemyHealth health;
 
     internal void Start()
     {
         // Find the player once
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        health = GetComponent<EnemyHealth>();
     }
 
     internal void Update()
     {
         if (player == null) return;
+
+        if (health != null && health.currentState == EnemyState.Dead)
+            return;
 
         // Direction toward player
         Vector3 direction = player.position - transform.position;

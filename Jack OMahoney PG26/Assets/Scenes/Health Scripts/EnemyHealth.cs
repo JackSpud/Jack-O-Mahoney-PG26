@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour,I_Health
@@ -7,12 +8,31 @@ public class EnemyHealth : MonoBehaviour,I_Health
     public float currentHealth;
     public GameObject damageNumberPrefab;
 
+    public enum EnemyState
+    {
+        Active,
+        Dead
+    }
+    
+    public EnemyState currentState = EnemyState.Active;
+
     void Start()
     {
         currentHealth = maxHealth;
     }
 
+    void Update()
+    {
+        switch (currentState)
+        {
+            case EnemyState.Active:
+                break;
 
+            case EnemyState.Dead:
+                print("State is Dead");
+                break;
+        }
+    }
 
     public void TakeDamage(float damage)
     {
@@ -47,8 +67,6 @@ public class EnemyHealth : MonoBehaviour,I_Health
 
     void Die()
     {
-        // Notify wave spawner that this enemy is dead
-        WaveSpawner.OnEnemyKilled(this);
 
         if (CompareTag("Boss"))
         {
@@ -59,11 +77,34 @@ public class EnemyHealth : MonoBehaviour,I_Health
             }
         }
 
-        Destroy(gameObject);
+        if (currentState == EnemyState.Dead) return;
+
+        currentState = EnemyState.Dead;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+            rb.linearVelocity = Vector3.zero;
+
+        StartCoroutine(RunDeath());
     }
 
-    internal void testmethod()
+    IEnumerator RunDeath()
     {
-        print("test");
+        yield return new WaitForSeconds(2f);
+
+        WaveSpawner.OnEnemyKilled(this);
+
+        Destroy(gameObject);
+
+    }
+
+    internal void Hurt()
+    {
+        print("OW");
+    }
+
+    internal void Yay()
+    {
+        print("Yay!!");
     }
 }

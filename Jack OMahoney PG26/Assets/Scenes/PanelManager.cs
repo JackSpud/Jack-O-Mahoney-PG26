@@ -29,7 +29,7 @@ public class PanelManager : MonoBehaviour
 
         foreach (Transform child in allChildren)
         {
-            if (child.name == "ChestOpenPanel")
+            if (child.name == "ChestVideoPanel")
             {
                 VideoPanel = child.gameObject;
             }

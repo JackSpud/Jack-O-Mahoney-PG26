@@ -127,6 +127,14 @@ public class WaveSpawner : MonoBehaviour
             health.ResetHealth();
         }
 
+        foreach (EnemyHealth enemy in allEnemies)
+        {
+            if (enemy != null)
+            {
+                enemy.Yay();
+            }
+        }
+
         // Show boss health bar
         if (bossHealthUI != null && health != null)
         {

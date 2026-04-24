@@ -82,7 +82,7 @@ public class Projectile : MonoBehaviour
         {
             if (health is EnemyHealth)
             {
-                (health as EnemyHealth).testmethod();
+                (health as EnemyHealth).Hurt();
 
                 HitTarget();
             }
