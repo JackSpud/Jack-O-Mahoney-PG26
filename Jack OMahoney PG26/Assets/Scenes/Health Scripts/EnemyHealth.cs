@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour,I_Health
     public float maxHealth = 10f;
     public float currentHealth;
     public GameObject damageNumberPrefab;
-
+    private Animator anim;
     public enum EnemyState
     {
         Active,
@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour,I_Health
     void Start()
     {
         currentHealth = maxHealth;
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -84,6 +85,10 @@ public class EnemyHealth : MonoBehaviour,I_Health
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
             rb.linearVelocity = Vector3.zero;
+
+        if (anim != null)
+            anim.SetTrigger("Death");
+        
 
         StartCoroutine(RunDeath());
     }

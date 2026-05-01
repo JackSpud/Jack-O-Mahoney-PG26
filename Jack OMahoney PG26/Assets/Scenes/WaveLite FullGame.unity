@@ -1040,8 +1040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
   Boss: {fileID: 4868222387212763623, guid: d7e103b73056f354780c3478b6ed341e, type: 3}
-  bossWaveInterval: 1
-  enemyPrefab: {fileID: 4868222387212763623, guid: 62640bdca151fb2419d45186af2f0800, type: 3}
+  bossWaveInterval: 10
+  enemyPrefab: {fileID: 5701669219825500990, guid: 9f4ad9c91def5bf469519656695f6d9d, type: 3}
   spawnZones:
   - {fileID: 1118828944}
   - {fileID: 1406270864}
@@ -3313,7 +3313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1697043854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3515,7 +3515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1898730926
 RectTransform:
   m_ObjectHideFlags: 0
